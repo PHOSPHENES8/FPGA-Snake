@@ -196,7 +196,7 @@ void snake_move(int dir, int dx, int dy){
     if(get_food != 0) {
         p = SNAKE_LEN_ADDR;
         *p = len+1;
-        set_snake(len, last_x, last_y, x, y);
+        set_snake(len, x, y, last_x, last_y);
 
         int food_ok = 0;
         while(food_ok == 0){
