@@ -1,0 +1,361 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/20c2fb8c/
+ALU_a	ALU.v	/^module ALU_a($/;"	m
+ALU_c	ALU.v	/^module ALU_c($/;"	m
+ALU_s	ALU.v	/^module ALU_s($/;"	m
+AluOp	ID.v	/^    function [2:0] AluOp;$/;"	f	module:ID
+AluOut	ALU.v	/^    function [31:0] AluOut;$/;"	f	module:ALU_a
+AluOut	ALU.v	/^    function [31:0] AluOut;$/;"	f	module:ALU_s
+AluOut	ALU.v	/^    function [31:0]AluOut;$/;"	f	module:ALU_c
+BranchPC	ID.v	/^    function [31:0] BranchPC;$/;"	f	module:ID
+CP0_reg	CP0.v	/^module CP0_reg($/;"	m
+EX	EX.v	/^module EX($/;"	m
+EX_MEM	EX_MEM.v	/^module EX_MEM($/;"	m
+ID	ID.v	/^module ID($/;"	m
+ID_EX	ID_EX.v	/^module ID_EX($/;"	m
+ID_flush	ID_EX.v	/^    reg ID_flush;$/;"	r	module:ID_EX
+ID_flush_in	ID_EX.v	/^    input ID_flush_in,$/;"	p	module:ID_EX
+ID_flush_out	ID_EX.v	/^    output ID_flush_out,$/;"	p	module:ID_EX
+IF	IF.v	/^module IF($/;"	m
+IF_addr_fault	ID_EX.v	/^    reg IF_addr_fault;$/;"	r	module:ID_EX
+IF_addr_fault	IF.v	/^    output IF_addr_fault$/;"	p	module:IF
+IF_addr_fault_in	EX.v	/^    input IF_addr_fault_in,$/;"	p	module:EX
+IF_addr_fault_in	ID.v	/^    input IF_addr_fault_in,$/;"	p	module:ID
+IF_addr_fault_in	ID_EX.v	/^    input IF_addr_fault_in,$/;"	p	module:ID_EX
+IF_addr_fault_out	EX.v	/^    output IF_addr_fault_out,$/;"	p	module:EX
+IF_addr_fault_out	ID.v	/^    output IF_addr_fault_out,$/;"	p	module:ID
+IF_addr_fault_out	ID_EX.v	/^    output IF_addr_fault_out,$/;"	p	module:ID_EX
+IM_Interface	IM_Interface.v	/^module IM_Interface($/;"	m
+Imm	ID.v	/^        input[15:0] Imm;$/;"	p	function:ID.ImmExt
+Imm	ID.v	/^    wire [15:0] Imm;$/;"	n	module:ID
+ImmExt	ID.v	/^    function[31:0] ImmExt;$/;"	f	module:ID
+Inst	EX.v	/^        input[31:0] Inst;$/;"	p	function:EX.OverFlow
+Inst	EX_MEM.v	/^    reg [31:0] Inst;$/;"	r	module:EX_MEM
+Inst	ID.v	/^        input [31:0] Inst;$/;"	p	function:ID.WriteDataSrc
+Inst	ID_EX.v	/^    reg [31:0] reg_data1, reg_data2,extImm, Inst;$/;"	r	module:ID_EX
+Inst	IF.v	/^    output [31:0] Inst,$/;"	p	module:IF
+Inst	IM_Interface.v	/^    output [31:0] Inst$/;"	p	module:IM_Interface
+InstSramAddr	IM_Interface.v	/^    function [31:0] InstSramAddr;$/;"	f	module:IM_Interface
+Inst_in	EX.v	/^    input [31:0] Inst_in,$/;"	p	module:EX
+Inst_in	EX_MEM.v	/^    input [31:0] Inst_in,$/;"	p	module:EX_MEM
+Inst_in	ID.v	/^    input [31:0] Inst_in, $/;"	p	module:ID
+Inst_in	ID_EX.v	/^    input [31:0] Inst_in,$/;"	p	module:ID_EX
+Inst_out	EX.v	/^    output [31:0] Inst_out,$/;"	p	module:EX
+Inst_out	EX_MEM.v	/^    output [31:0] Inst_out,$/;"	p	module:EX_MEM
+Inst_out	ID.v	/^    output [31:0] Inst_out,$/;"	p	module:ID
+Inst_out	ID_EX.v	/^    output [31:0] Inst_out,         $/;"	p	module:ID_EX
+OverFlow	ALU.v	/^    function OverFlow;$/;"	f	module:ALU_a
+OverFlow	EX.v	/^    function OverFlow;$/;"	f	module:EX
+PC	EX_MEM.v	/^    reg [31:0] PC;$/;"	r	module:EX_MEM
+PC	ID_EX.v	/^    reg [31:0] PC;$/;"	r	module:ID_EX
+PC	IF.v	/^    output [31:0] PC,$/;"	p	module:IF
+PC4	EX_MEM.v	/^    reg [31:0] PC4;$/;"	r	module:EX_MEM
+PC4	ID_EX.v	/^    reg [31:0] PC4;$/;"	r	module:ID_EX
+PC4	IF.v	/^    output [31:0] PC4,$/;"	p	module:IF
+PC4	IM_Interface.v	/^        input PC4;$/;"	p	function:IM_Interface.InstSramAddr
+PC4	IM_Interface.v	/^    input [31:0] PC4,$/;"	p	module:IM_Interface
+PC4_in	EX.v	/^    input [31:0] PC4_in,$/;"	p	module:EX
+PC4_in	EX_MEM.v	/^    input [31:0] PC4_in,$/;"	p	module:EX_MEM
+PC4_in	ID.v	/^    input [31:0] PC4_in,$/;"	p	module:ID
+PC4_in	ID.v	/^    wire  [31:0]  branchPC = BranchPC(opcode, PC4_in+{extImm[29:0],2'b00}, $/;"	n	module:ID
+PC4_in	ID_EX.v	/^    input [31:0] PC4_in,$/;"	p	module:ID_EX
+PC4_out	EX.v	/^    output [31:0] PC4_out,$/;"	p	module:EX
+PC4_out	EX_MEM.v	/^    output [31:0] PC4_out,$/;"	p	module:EX_MEM
+PC4_out	ID.v	/^    output [31:0] PC4_out,$/;"	p	module:ID
+PC4_out	ID_EX.v	/^    output [31:0] PC4_out,          $/;"	p	module:ID_EX
+PCSel	ID.v	/^    wire [1:0] PCSel;$/;"	n	module:ID
+PCSrc	IF.v	/^    input [1:0] PCSrc,$/;"	p	module:IF
+PCSrc	IM_Interface.v	/^        input [1:0] PCSrc;$/;"	p	function:IM_Interface.InstSramAddr
+PCSrc	IM_Interface.v	/^    input [1:0] PCSrc,$/;"	p	module:IM_Interface
+PC_in	EX.v	/^    input [31:0] PC_in,$/;"	p	module:EX
+PC_in	EX_MEM.v	/^    input [31:0] PC_in,$/;"	p	module:EX_MEM
+PC_in	ID.v	/^    input [31:0] PC_in,$/;"	p	module:ID
+PC_in	ID_EX.v	/^    input [31:0] PC_in ,$/;"	p	module:ID_EX
+PC_out	EX.v	/^    output [31:0] PC_out,$/;"	p	module:EX
+PC_out	EX_MEM.v	/^    output [31:0] PC_out,$/;"	p	module:EX_MEM
+PC_out	ID.v	/^    output [31:0] PC_out,$/;"	p	module:ID
+PC_out	ID_EX.v	/^    output [31:0] PC_out ,            $/;"	p	module:ID_EX
+PC_reg	IF.v	/^    reg [31:0] PC_reg;$/;"	r	module:IF
+ReadReg	RegFile.v	/^    function [31:0] ReadReg;$/;"	f	module:RegFile
+RegFile	RegFile.v	/^module RegFile($/;"	m
+Regs	RegFile.v	/^    reg [31:0] Regs[0:31];$/;"	r	module:RegFile
+Rtype	ID.v	/^        input Rtype;$/;"	p	function:ID.AluOp
+Rtype	ID.v	/^        input Rtype;$/;"	p	function:ID.WriteDataSrc
+Rtype	ID.v	/^        input Rtype;$/;"	p	function:ID.WriteHiLo
+SIZE	RegFile.v	/^    parameter SIZE = 32;$/;"	c	module:RegFile
+WriteDataSrc	ID.v	/^    function [3:0] WriteDataSrc;$/;"	f	module:ID
+WriteHiLo	ID.v	/^    function [1:0] WriteHiLo;$/;"	f	module:ID
+WriteMem	ID.v	/^    function WriteMem;$/;"	f	module:ID
+addrSrc	ID.v	/^    output addrSrc,$/;"	p	module:ID
+aluOp	ALU.v	/^        input [2:0] aluOp;$/;"	p	function:ALU_a.AluOut
+aluOp	ALU.v	/^        input [2:0] aluOp;$/;"	p	function:ALU_a.OverFlow
+aluOp	ALU.v	/^        input [2:0] aluOp;$/;"	p	function:ALU_c.AluOut
+aluOp	ALU.v	/^        input [2:0] aluOp;$/;"	p	function:ALU_s.AluOut
+aluOp	ALU.v	/^    input [2:0] aluOp,$/;"	p	module:ALU_a
+aluOp	ALU.v	/^    input [2:0] aluOp,$/;"	p	module:ALU_c
+aluOp	ALU.v	/^    input [2:0] aluOp,$/;"	p	module:ALU_s
+aluOp	EX.v	/^    input [2:0] aluOp,$/;"	p	module:EX
+aluOp	ID.v	/^    output [2:0] aluOp,$/;"	p	module:ID
+aluOp	ID_EX.v	/^    reg [2:0] aluOp;$/;"	r	module:ID_EX
+aluOp_in	ID_EX.v	/^    input [2:0] aluOp_in,$/;"	p	module:ID_EX
+aluOp_out	ID_EX.v	/^    output [2:0] aluOp_out,         $/;"	p	module:ID_EX
+alu_a	EX_MEM.v	/^    reg [31:0] alu_a;$/;"	r	module:EX_MEM
+alu_a_in	EX_MEM.v	/^    input [31:0] alu_a_in,$/;"	p	module:EX_MEM
+alu_a_out	EX.v	/^    output [31:0] alu_a_out,$/;"	p	module:EX
+alu_a_out	EX_MEM.v	/^    output [31:0] alu_a_out,$/;"	p	module:EX_MEM
+alu_a_overflow	EX.v	/^        input alu_a_overflow;$/;"	p	function:EX.OverFlow
+alu_a_overflow	EX.v	/^    wire alu_a_overflow;$/;"	n	module:EX
+alu_c	EX_MEM.v	/^    reg [31:0] alu_c;$/;"	r	module:EX_MEM
+alu_c_in	EX_MEM.v	/^    input [31:0] alu_c_in,$/;"	p	module:EX_MEM
+alu_c_out	EX.v	/^    output [31:0] alu_c_out,$/;"	p	module:EX
+alu_c_out	EX_MEM.v	/^    output [31:0] alu_c_out$/;"	p	module:EX_MEM
+alu_out	ALU.v	/^        input [31:0] alu_out;$/;"	p	function:ALU_a.OverFlow
+alu_out	ALU.v	/^    output [31:0] alu_out$/;"	p	module:ALU_c
+alu_out	ALU.v	/^    output [31:0] alu_out$/;"	p	module:ALU_s
+alu_out	ALU.v	/^    output [31:0] alu_out,$/;"	p	module:ALU_a
+alu_s	EX_MEM.v	/^    reg [31:0] alu_s;$/;"	r	module:EX_MEM
+alu_s_in	EX_MEM.v	/^    input [31:0] alu_s_in,$/;"	p	module:EX_MEM
+alu_s_out	EX.v	/^    output [31:0] alu_s_out,$/;"	p	module:EX
+alu_s_out	EX_MEM.v	/^    output [31:0] alu_s_out,$/;"	p	module:EX_MEM
+branchPC	ID.v	/^    wire  [31:0]  branchPC = BranchPC(opcode, PC4_in+{extImm[29:0],2'b00}, $/;"	n	module:ID
+branch_inst_PC	ID.v	/^    reg [31:0] branch_inst_PC;$/;"	r	module:ID
+clk	CP0.v	/^    input clk,$/;"	p	module:CP0_reg
+clk	EX.v	/^    input clk,$/;"	p	module:EX
+clk	EX_MEM.v	/^    input clk,$/;"	p	module:EX_MEM
+clk	ID.v	/^    input clk,$/;"	p	module:ID
+clk	ID_EX.v	/^    input clk, $/;"	p	module:ID_EX
+clk	IF.v	/^    input clk,$/;"	p	module:IF
+clk	RegFile.v	/^    input clk,$/;"	p	module:RegFile
+cp0_reg	ID_EX.v	/^    reg [31:0] cp0_reg;$/;"	r	module:ID_EX
+cp0_reg_in	ID_EX.v	/^    input [31:0] cp0_reg_in,$/;"	p	module:ID_EX
+cp0_reg_out	ID_EX.v	/^    output [31:0] cp0_reg_out,       $/;"	p	module:ID_EX
+data_sram_addr	EX.v	/^    output [31:0] data_sram_addr, $/;"	p	module:EX
+data_sram_addr	EX_MEM.v	/^    reg [31:0] data_sram_addr;$/;"	r	module:EX_MEM
+data_sram_addr	ID.v	/^    output [31:0] data_sram_addr,$/;"	p	module:ID
+data_sram_addr_in	EX_MEM.v	/^    input [31:0] data_sram_addr_in,$/;"	p	module:EX_MEM
+data_sram_addr_out	EX_MEM.v	/^    output [31:0] data_sram_addr_out,$/;"	p	module:EX_MEM
+data_sram_rdata	IM_Interface.v	/^    input [31:0] data_sram_rdata,$/;"	p	module:IM_Interface
+data_sram_wdata	EX.v	/^    output [31:0] data_sram_wdata,$/;"	p	module:EX
+data_sram_wdata	EX_MEM.v	/^    reg [31:0] data_sram_wdata;$/;"	r	module:EX_MEM
+data_sram_wdata_in	EX_MEM.v	/^    input [31:0] data_sram_wdata_in,$/;"	p	module:EX_MEM
+data_sram_wdata_out	EX_MEM.v	/^    output [31:0] data_sram_wdata_out,$/;"	p	module:EX_MEM
+data_sram_wen	EX_MEM.v	/^    reg [3:0] data_sram_wen;$/;"	r	module:EX_MEM
+data_sram_wen	ID.v	/^    output reg [3:0] data_sram_wen,$/;"	p	module:ID
+data_sram_wen	ID_EX.v	/^    reg [3:0]  data_sram_wen;$/;"	r	module:ID_EX
+data_sram_wen_in	EX.v	/^    input [3:0] data_sram_wen_in,$/;"	p	module:EX
+data_sram_wen_in	EX_MEM.v	/^    input [3:0] data_sram_wen_in,$/;"	p	module:EX_MEM
+data_sram_wen_in	ID_EX.v	/^    input [3:0] data_sram_wen_in,$/;"	p	module:ID_EX
+data_sram_wen_out	EX.v	/^    output[3:0]  data_sram_wen_out,$/;"	p	module:EX
+data_sram_wen_out	EX_MEM.v	/^    output [3:0] data_sram_wen_out,$/;"	p	module:EX_MEM
+data_sram_wen_out	ID_EX.v	/^    output [3:0] data_sram_wen_out,$/;"	p	module:ID_EX
+delay_slot	ID_EX.v	/^    reg delay_slot;$/;"	r	module:ID_EX
+delay_slot_in	EX.v	/^    input delay_slot_in,$/;"	p	module:EX
+delay_slot_in	ID_EX.v	/^    input delay_slot_in,$/;"	p	module:ID_EX
+delay_slot_out	ID.v	/^    output delay_slot_out,$/;"	p	module:ID
+delay_slot_out	ID_EX.v	/^    output delay_slot_out,$/;"	p	module:ID_EX
+epc	ID.v	/^    input [31:0] epc,$/;"	p	module:ID
+epc_data	ID_EX.v	/^    reg [31:0] epc_data;$/;"	r	module:ID_EX
+epc_data_in	ID_EX.v	/^    input [31:0] epc_data_in,$/;"	p	module:ID_EX
+epc_data_out	ID_EX.v	/^    output [31:0] epc_data_out,$/;"	p	module:ID_EX
+extImm	EX.v	/^    input [31:0] extImm,$/;"	p	module:EX
+extImm	ID.v	/^        input [31:0] extImm;$/;"	p	function:ID.BranchPC
+extImm	ID.v	/^    output [31:0] extImm,$/;"	p	module:ID
+extImm	ID_EX.v	/^    reg [31:0] reg_data1, reg_data2,extImm, Inst;$/;"	r	module:ID_EX
+extImm_in	ID_EX.v	/^    input [31:0] extImm_in,$/;"	p	module:ID_EX
+extImm_out	ID_EX.v	/^    output [31:0] extImm_out,       $/;"	p	module:ID_EX
+extOp	EX_MEM.v	/^    reg [2:0] extOp;$/;"	r	module:EX_MEM
+extOp	ID.v	/^        input extOp;$/;"	p	function:ID.ImmExt
+extOp	ID.v	/^    output [2:0] extOp,$/;"	p	module:ID
+extOp	ID_EX.v	/^    reg [2:0] extOp;$/;"	r	module:ID_EX
+extOp_in	EX.v	/^    input [2:0] extOp_in,$/;"	p	module:EX
+extOp_in	EX_MEM.v	/^    input [2:0] extOp_in,$/;"	p	module:EX_MEM
+extOp_in	ID_EX.v	/^    input [2:0] extOp_in,$/;"	p	module:ID_EX
+extOp_out	EX.v	/^    output [2:0] extOp_out,$/;"	p	module:EX
+extOp_out	EX_MEM.v	/^    output [2:0] extOp_out,$/;"	p	module:EX_MEM
+extOp_out	ID_EX.v	/^    output [2:0] extOp_out,         $/;"	p	module:ID_EX
+flush	EX.v	/^    input flush,$/;"	p	module:EX
+flush	ID.v	/^    input flush,$/;"	p	module:ID
+func	ID.v	/^        input [5:0] func;$/;"	p	function:ID.AluOp
+func	ID.v	/^        input [5:0] func;$/;"	p	function:ID.WriteDataSrc
+func	ID.v	/^        input [5:0]func;$/;"	p	function:ID.WriteHiLo
+func	ID.v	/^    wire [5:0] func, opcode;$/;"	n	module:ID
+hilo	EX_MEM.v	/^    reg [63:0] hilo;$/;"	r	module:EX_MEM
+hilo_in	EX_MEM.v	/^    input [63:0] hilo_in, \/\/ from mult and div$/;"	p	module:EX_MEM
+hilo_out	EX_MEM.v	/^    output [63:0] hilo_out,  $/;"	p	module:EX_MEM
+i	RegFile.v	/^            integer i;$/;"	r	block:RegFile.reg_init
+inst_sram_addr	IM_Interface.v	/^    output [31:0] inst_sram_addr,$/;"	p	module:IM_Interface
+inst_sram_en	IM_Interface.v	/^    output inst_sram_en,$/;"	p	module:IM_Interface
+inst_sram_rdata	IF.v	/^    input [31:0] inst_sram_rdata,$/;"	p	module:IF
+inst_sram_wen	IM_Interface.v	/^    output [3:0]  inst_sram_wen,$/;"	p	module:IM_Interface
+isbranch	ID.v	/^    output reg isbranch,$/;"	p	module:ID
+isbranch	ID_EX.v	/^    reg isbranch;$/;"	r	module:ID_EX
+isbranch_in	ID_EX.v	/^    input isbranch_in,$/;"	p	module:ID_EX
+isbranch_out	ID_EX.v	/^    output isbranch_out,$/;"	p	module:ID_EX
+lwExtOp	ID.v	/^    function [2:0] lwExtOp;$/;"	f	module:ID
+nextPC	ID.v	/^    output reg  [31:0] nextPC,$/;"	p	module:ID
+nextPC	ID_EX.v	/^    reg [31:0] nextPC;$/;"	r	module:ID_EX
+nextPC	IF.v	/^    input [31:0] nextPC,$/;"	p	module:IF
+nextPC	IM_Interface.v	/^        input nextPC;$/;"	p	function:IM_Interface.InstSramAddr
+nextPC	IM_Interface.v	/^    input [31:0] nextPC,$/;"	p	module:IM_Interface
+nextPC_in	ID_EX.v	/^    input [31:0] nextPC_in,$/;"	p	module:ID_EX
+nextPC_out	ID_EX.v	/^    output [31:0] nextPC_out,$/;"	p	module:ID_EX
+opcode	ID.v	/^        input [31:0] opcode;$/;"	p	function:ID.ImmExt
+opcode	ID.v	/^        input [5:0] opcode ;$/;"	p	function:ID.WriteMem
+opcode	ID.v	/^        input [5:0] opcode;$/;"	p	function:ID.AluOp
+opcode	ID.v	/^        input [5:0] opcode;$/;"	p	function:ID.BranchPC
+opcode	ID.v	/^        input [5:0] opcode;$/;"	p	function:ID.WriteDataSrc
+opcode	ID.v	/^        input [5:0] opcode;$/;"	p	function:ID.lwExtOp
+opcode	ID.v	/^    wire [5:0] func, opcode;$/;"	n	module:ID
+opcode_fun	ID.v	/^    wire [5:0] opcode_fun;$/;"	n	module:ID
+overflow	ALU.v	/^    output overflow$/;"	p	module:ALU_a
+overflow	EX.v	/^    wire overflow;$/;"	n	module:EX
+overflow_out	EX.v	/^    output overflow_out$/;"	p	module:EX
+rd	ID.v	/^    wire [4:0] rs, rt, rd;$/;"	n	module:ID
+readReg1	RegFile.v	/^    input [4:0] readReg1,$/;"	p	module:RegFile
+readReg2	RegFile.v	/^    input [4:0] readReg2,$/;"	p	module:RegFile
+read_data1	RegFile.v	/^    output [31:0] read_data1,$/;"	p	module:RegFile
+read_data2	RegFile.v	/^    output [31:0] read_data2$/;"	p	module:RegFile
+reg_data1	EX_MEM.v	/^    reg [31:0] reg_data1;$/;"	r	module:EX_MEM
+reg_data1	ID.v	/^        input [31:0] reg_data1;$/;"	p	function:ID.BranchPC
+reg_data1	ID.v	/^    output[31:0] reg_data1,$/;"	p	module:ID
+reg_data1	ID_EX.v	/^    reg [31:0] reg_data1, reg_data2,extImm, Inst;$/;"	r	module:ID_EX
+reg_data1_in	EX.v	/^    input [31:0] reg_data1_in,$/;"	p	module:EX
+reg_data1_in	EX_MEM.v	/^    input [31:0] reg_data1_in,$/;"	p	module:EX_MEM
+reg_data1_in	ID_EX.v	/^    input [31:0] reg_data1_in,$/;"	p	module:ID_EX
+reg_data1_out	EX.v	/^    output [31:0] reg_data1_out,$/;"	p	module:EX
+reg_data1_out	EX_MEM.v	/^    output [31:0] reg_data1_out,$/;"	p	module:EX_MEM
+reg_data1_out	ID_EX.v	/^    output [31:0] reg_data1_out,    $/;"	p	module:ID_EX
+reg_data2	EX_MEM.v	/^    reg [31:0] reg_data2;$/;"	r	module:EX_MEM
+reg_data2	ID.v	/^    output[31:0] reg_data2,$/;"	p	module:ID
+reg_data2	ID_EX.v	/^    reg [31:0] reg_data1, reg_data2,extImm, Inst;$/;"	r	module:ID_EX
+reg_data2_in	EX.v	/^    input [31:0] reg_data2_in,$/;"	p	module:EX
+reg_data2_in	EX_MEM.v	/^    input [31:0] reg_data2_in,$/;"	p	module:EX_MEM
+reg_data2_in	ID_EX.v	/^    input [31:0] reg_data2_in,$/;"	p	module:ID_EX
+reg_data2_out	EX.v	/^    output [31:0] reg_data2_out,$/;"	p	module:EX
+reg_data2_out	EX_MEM.v	/^    output [31:0] reg_data2_out,$/;"	p	module:EX_MEM
+reg_data2_out	ID_EX.v	/^    output [31:0] reg_data2_out,      $/;"	p	module:ID_EX
+reg_init	RegFile.v	/^        if(rst_n == 1'b0) begin : reg_init$/;"	b	module:RegFile
+reg_num	RegFile.v	/^        input [4:0] reg_num;$/;"	p	function:RegFile.ReadReg
+reg_val	RegFile.v	/^        input [31:0] reg_val;$/;"	p	function:RegFile.ReadReg
+ri_fault	ID.v	/^    output reg ri_fault$/;"	p	module:ID
+ri_fault	ID_EX.v	/^    reg ri_fault;$/;"	r	module:ID_EX
+ri_fault_in	EX.v	/^    input ri_fault_in,$/;"	p	module:EX
+ri_fault_in	ID_EX.v	/^    input ri_fault_in,$/;"	p	module:ID_EX
+ri_fault_out	EX.v	/^    output ri_fault_out,$/;"	p	module:EX
+ri_fault_out	ID_EX.v	/^    output ri_fault_out$/;"	p	module:ID_EX
+rs	ID.v	/^    wire [4:0] rs, rt, rd;$/;"	n	module:ID
+rst_n	CP0.v	/^    input rst_n$/;"	p	module:CP0_reg
+rst_n	EX.v	/^    input rst_n,$/;"	p	module:EX
+rst_n	EX_MEM.v	/^    input rst_n,$/;"	p	module:EX_MEM
+rst_n	ID.v	/^    input rst_n,$/;"	p	module:ID
+rst_n	ID_EX.v	/^    input rst_n,$/;"	p	module:ID_EX
+rst_n	IF.v	/^    input rst_n,$/;"	p	module:IF
+rst_n	RegFile.v	/^    input rst_n,$/;"	p	module:RegFile
+rt	ID.v	/^    wire [4:0] rs, rt, rd;$/;"	n	module:ID
+sa	EX.v	/^    input [4:0] sa,$/;"	p	module:EX
+sa	ID.v	/^    output [4:0] sa,$/;"	p	module:ID
+sa	ID_EX.v	/^    reg [4:0] sa;$/;"	r	module:ID_EX
+sa_in	ID_EX.v	/^    input [4:0] sa_in,$/;"	p	module:ID_EX
+sa_out	ID_EX.v	/^    output [4:0] sa_out,$/;"	p	module:ID_EX
+soft_int	EX.v	/^    wire soft_int; \/\/ ??? not sure $/;"	n	module:EX
+stall	EX.v	/^    input stall ,$/;"	p	module:EX
+stall	ID.v	/^    input stall,$/;"	p	module:ID
+stall	IF.v	/^    input stall,$/;"	p	module:IF
+target	ID.v	/^        input [31:0] target;$/;"	p	function:ID.BranchPC
+target	ID.v	/^    wire [25:0] target;$/;"	n	module:ID
+trap	ID.v	/^    output trap,$/;"	p	module:ID
+trap	ID_EX.v	/^    reg trap;$/;"	r	module:ID_EX
+trap_in	EX.v	/^    input trap_in,$/;"	p	module:EX
+trap_in	ID_EX.v	/^    input trap_in,$/;"	p	module:ID_EX
+trap_out	EX.v	/^    output trap_out,$/;"	p	module:EX
+trap_out	ID_EX.v	/^    output trap_out,                $/;"	p	module:ID_EX
+valA	ALU.v	/^        input [31:0] valA;$/;"	p	function:ALU_a.AluOut
+valA	ALU.v	/^        input [31:0] valA;$/;"	p	function:ALU_a.OverFlow
+valA	ALU.v	/^        input [31:0] valA;$/;"	p	function:ALU_c.AluOut
+valA	ALU.v	/^        input [31:0]valA;$/;"	p	function:ALU_s.AluOut
+valA	ALU.v	/^    input [31:0] valA,$/;"	p	module:ALU_a
+valA	ALU.v	/^    input [31:0] valA,$/;"	p	module:ALU_c
+valA	ALU.v	/^    input[31:0] valA, \/\/ rs\/sa$/;"	p	module:ALU_s
+valA	ID.v	/^    wire [31:0] valA, valB;$/;"	n	module:ID
+valA_a	EX.v	/^    wire [31:0] valA_a = reg_data1_in;$/;"	n	module:EX
+valA_c	EX.v	/^    wire [31:0] valA_c = valA_a;$/;"	n	module:EX
+valA_s	EX.v	/^    wire [31:0] valA_s = Inst_in[2] == 1'b1 ? reg_data1_in[4:0] : sa;$/;"	n	module:EX
+valB	ALU.v	/^        input [31:0] valB; $/;"	p	function:ALU_s.AluOut
+valB	ALU.v	/^        input [31:0] valB;$/;"	p	function:ALU_a.AluOut
+valB	ALU.v	/^        input [31:0] valB;$/;"	p	function:ALU_a.OverFlow
+valB	ALU.v	/^        input [31:0] valB;$/;"	p	function:ALU_c.AluOut
+valB	ALU.v	/^    input [31:0] valB ,$/;"	p	module:ALU_a
+valB	ALU.v	/^    input [31:0] valB,$/;"	p	module:ALU_c
+valB	ALU.v	/^    input[31:0] valB, \/\/ rt$/;"	p	module:ALU_s
+valB	ID.v	/^    wire [31:0] valA, valB;$/;"	n	module:ID
+valB_a	EX.v	/^    wire [31:0] valB_a = Inst_in[31:29] == 3'b000 ? reg_data2_in : extImm;$/;"	n	module:EX
+valB_c	EX.v	/^    wire [31:0] valB_c = valB_a;$/;"	n	module:EX
+valB_s	EX.v	/^    wire [31:0] valB_s = reg_data2_in;$/;"	n	module:EX
+writeReg	RegFile.v	/^    input [4:0] writeReg,$/;"	p	module:RegFile
+write_cp0reg	EX_MEM.v	/^    reg write_cp0reg;$/;"	r	module:EX_MEM
+write_cp0reg	ID_EX.v	/^    reg write_cp0reg;$/;"	r	module:ID_EX
+write_cp0reg_in	EX.v	/^    input write_cp0reg_in,$/;"	p	module:EX
+write_cp0reg_in	EX_MEM.v	/^    input write_cp0reg_in,$/;"	p	module:EX_MEM
+write_cp0reg_in	ID_EX.v	/^    input write_cp0reg_in,$/;"	p	module:ID_EX
+write_cp0reg_out	EX.v	/^    output write_cp0reg_out,$/;"	p	module:EX
+write_cp0reg_out	EX_MEM.v	/^    output write_cp0reg_out,$/;"	p	module:EX_MEM
+write_cp0reg_out	ID.v	/^    output write_cp0reg_out,$/;"	p	module:ID
+write_cp0reg_out	ID_EX.v	/^    output write_cp0reg_out,       $/;"	p	module:ID_EX
+write_data	EX.v	/^    output [31:0] write_data,$/;"	p	module:EX
+write_data	EX_MEM.v	/^    reg [31:0] write_data;$/;"	r	module:EX_MEM
+write_data	RegFile.v	/^        input [31:0] write_data;$/;"	p	function:RegFile.ReadReg
+write_data	RegFile.v	/^    input [31:0] write_data,$/;"	p	module:RegFile
+write_data_in	EX_MEM.v	/^    input [31:0] write_data_in,$/;"	p	module:EX_MEM
+write_data_out	EX_MEM.v	/^    output [31:0] write_data_out,$/;"	p	module:EX_MEM
+write_data_src	EX_MEM.v	/^    reg [3:0] write_data_src;$/;"	r	module:EX_MEM
+write_data_src	ID.v	/^    output[3:0] write_data_src ,$/;"	p	module:ID
+write_data_src	ID_EX.v	/^    reg [3:0] write_data_src;$/;"	r	module:ID_EX
+write_data_src_in	EX.v	/^    input [3:0] write_data_src_in,$/;"	p	module:EX
+write_data_src_in	EX_MEM.v	/^    input [3:0] write_data_src_in,$/;"	p	module:EX_MEM
+write_data_src_in	ID_EX.v	/^    input [3:0] write_data_src_in,$/;"	p	module:ID_EX
+write_data_src_out	EX.v	/^    output [3:0] write_data_src_out,$/;"	p	module:EX
+write_data_src_out	EX_MEM.v	/^    output [3:0] write_data_src_out,$/;"	p	module:EX_MEM
+write_data_src_out	ID_EX.v	/^    output [3:0] write_data_src_out,  $/;"	p	module:ID_EX
+write_dst	EX_MEM.v	/^    reg [4:0] write_dst;$/;"	r	module:EX_MEM
+write_dst	ID_EX.v	/^    reg [4:0] write_dst;$/;"	r	module:ID_EX
+write_dst_in	EX.v	/^    input [4:0] write_dst_in,$/;"	p	module:EX
+write_dst_in	EX_MEM.v	/^    input [4:0] write_dst_in,$/;"	p	module:EX_MEM
+write_dst_in	ID.v	/^    input [4:0] write_dst_in,$/;"	p	module:ID
+write_dst_in	ID_EX.v	/^    input [4:0] write_dst_in,$/;"	p	module:ID_EX
+write_dst_out	EX.v	/^    output [4:0] write_dst_out,$/;"	p	module:EX
+write_dst_out	EX_MEM.v	/^    output [4:0] write_dst_out,$/;"	p	module:EX_MEM
+write_dst_out	ID.v	/^    output reg [4:0] write_dst_out,$/;"	p	module:ID
+write_dst_out	ID_EX.v	/^    output [4:0] write_dst_out,      $/;"	p	module:ID_EX
+write_en	RegFile.v	/^        input write_en;$/;"	p	function:RegFile.ReadReg
+write_en	RegFile.v	/^    input write_en,$/;"	p	module:RegFile
+write_hilo	EX_MEM.v	/^    reg write_hilo;$/;"	r	module:EX_MEM
+write_hilo	ID.v	/^    output [1:0] write_hilo,$/;"	p	module:ID
+write_hilo	ID_EX.v	/^    reg [1:0] write_hilo;$/;"	r	module:ID_EX
+write_hilo_in	EX.v	/^    input [1:0] write_hilo_in,$/;"	p	module:EX
+write_hilo_in	EX_MEM.v	/^    input write_hilo_in,$/;"	p	module:EX_MEM
+write_hilo_in	ID_EX.v	/^    input [1:0] write_hilo_in,$/;"	p	module:ID_EX
+write_hilo_out	EX.v	/^    output [1:0] write_hilo_out,$/;"	p	module:EX
+write_hilo_out	EX_MEM.v	/^    output write_hilo_out,$/;"	p	module:EX_MEM
+write_hilo_out	ID_EX.v	/^    output [1:0] write_hilo_out,      $/;"	p	module:ID_EX
+write_mem	ID_EX.v	/^    reg [3:0] write_mem;$/;"	r	module:ID_EX
+write_mem_in	ID_EX.v	/^    input [3:0] write_mem_in,$/;"	p	module:ID_EX
+write_mem_out	ID_EX.v	/^    output [3:0] write_mem_out,      $/;"	p	module:ID_EX
+write_reg	EX_MEM.v	/^    reg write_reg;$/;"	r	module:EX_MEM
+write_reg	ID_EX.v	/^    reg write_reg;$/;"	r	module:ID_EX
+write_reg	RegFile.v	/^        input [4:0] write_reg;$/;"	p	function:RegFile.ReadReg
+write_reg_data	ID.v	/^    input[31:0] write_reg_data,$/;"	p	module:ID
+write_reg_in	EX.v	/^    input write_reg_in,$/;"	p	module:EX
+write_reg_in	EX_MEM.v	/^    input write_reg_in,$/;"	p	module:EX_MEM
+write_reg_in	ID.v	/^    input  write_reg_in,  \/\/ reg write en$/;"	p	module:ID
+write_reg_in	ID_EX.v	/^    input write_reg_in,$/;"	p	module:ID_EX
+write_reg_out	EX.v	/^    output write_reg_out,$/;"	p	module:EX
+write_reg_out	EX_MEM.v	/^    output write_reg_out,$/;"	p	module:EX_MEM
+write_reg_out	ID.v	/^    output reg write_reg_out, $/;"	p	module:ID
+write_reg_out	ID_EX.v	/^    output write_reg_out,           $/;"	p	module:ID_EX
