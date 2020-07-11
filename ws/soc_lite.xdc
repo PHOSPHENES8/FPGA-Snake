@@ -75,6 +75,26 @@ set_property PACKAGE_PIN AA8 [get_ports {btn_key_row[3]}]
 set_property PACKAGE_PIN Y5 [get_ports {btn_step[0]}]
 set_property PACKAGE_PIN V6 [get_ports {btn_step[1]}]
 
+#fpga_dots
+set_property PACKAGE_PIN F3 [get_ports {dot_row[7]}]
+set_property PACKAGE_PIN F4 [get_ports {dot_row[6]}]
+set_property PACKAGE_PIN C2 [get_ports {dot_row[5]}]
+set_property PACKAGE_PIN F5 [get_ports {dot_row[4]}]
+set_property PACKAGE_PIN H3 [get_ports {dot_row[3]}]
+set_property PACKAGE_PIN B1 [get_ports {dot_row[2]}]
+set_property PACKAGE_PIN G4 [get_ports {dot_row[1]}]
+set_property PACKAGE_PIN J5 [get_ports {dot_row[0]}]
+
+set_property PACKAGE_PIN G6 [get_ports {dot_col[7]}]
+set_property PACKAGE_PIN G5 [get_ports {dot_col[6]}]
+set_property PACKAGE_PIN H6 [get_ports {dot_col[5]}]
+set_property PACKAGE_PIN J4 [get_ports {dot_col[4]}]
+set_property PACKAGE_PIN J6 [get_ports {dot_col[3]}]
+set_property PACKAGE_PIN E3 [get_ports {dot_col[2]}]
+set_property PACKAGE_PIN C1 [get_ports {dot_col[1]}]
+set_property PACKAGE_PIN H4 [get_ports {dot_col[0]}]
+
+
 #lcd
 
 set_property PACKAGE_PIN J25 [get_ports lcd1_rst]
@@ -131,6 +151,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports lcd1_wr]
 set_property IOSTANDARD LVCMOS33 [get_ports lcd1_rd]
 set_property IOSTANDARD LVCMOS33 [get_ports lcd1_bl_ctr]
 
+set_property IOSTANDARD LVCMOS33 [get_ports {dot_row[*]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {dot_col[*]}]
+
 
 
 
@@ -138,3 +161,22 @@ set_property IOSTANDARD LVCMOS33 [get_ports lcd1_bl_ctr]
 set_false_path -from [get_clocks -of_objects [get_pins clk_pll/inst/plle2_adv_inst/CLKOUT1]] -to [get_clocks -of_objects [get_pins clk_pll/inst/plle2_adv_inst/CLKOUT0]]
 set_false_path -from [get_clocks -of_objects [get_pins clk_pll/inst/plle2_adv_inst/CLKOUT0]] -to [get_clocks -of_objects [get_pins clk_pll/inst/plle2_adv_inst/CLKOUT1]]
 
+
+set_property DRIVE 12 [get_ports {lcd1_db[15]}]
+set_property DRIVE 12 [get_ports {lcd1_db[14]}]
+set_property DRIVE 12 [get_ports {lcd1_db[13]}]
+set_property DRIVE 12 [get_ports {lcd1_db[12]}]
+set_property DRIVE 12 [get_ports {lcd1_db[11]}]
+set_property DRIVE 12 [get_ports {lcd1_db[10]}]
+set_property DRIVE 12 [get_ports {lcd1_db[9]}]
+set_property DRIVE 12 [get_ports {lcd1_db[8]}]
+set_property DRIVE 12 [get_ports {lcd1_db[7]}]
+set_property DRIVE 12 [get_ports {lcd1_db[6]}]
+set_property DRIVE 12 [get_ports {lcd1_db[5]}]
+set_property DRIVE 12 [get_ports {lcd1_db[4]}]
+set_property DRIVE 12 [get_ports {lcd1_db[3]}]
+set_property DRIVE 12 [get_ports {lcd1_db[2]}]
+set_property DRIVE 12 [get_ports {lcd1_db[1]}]
+set_property DRIVE 12 [get_ports {lcd1_db[0]}]
+set_property DRIVE 12 [get_ports lcd1_scl]
+set_property PULLDOWN true [get_ports lcd1_cs]

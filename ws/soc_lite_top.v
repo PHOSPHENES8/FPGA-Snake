@@ -87,9 +87,12 @@ module soc_lite_top #(parameter SIMULATION=1'b0)
     output lcd1_rd,
     output lcd1_bl_ctr,
     output lcd1_T_PEN,
-    output lcd1_sda,
+    inout lcd1_sda,
     output lcd1_scl,
-    output lcd1_T_CS
+    inout lcd1_T_CS,
+
+    output [7:0] dot_row,
+   output [7:0] dot_col
 );
 //debug signals
 wire [31:0] debug_wb_pc;
@@ -97,7 +100,10 @@ wire [3 :0] debug_wb_rf_wen;
 wire [4 :0] debug_wb_rf_wnum;
 wire [31:0] debug_wb_rf_wdata;
 
-wire [15:0] lcd1_db_confreg;  assign lcd1_db = lcd1_db_confreg;
+
+reg [15:0] lcd1_data;
+
+wire [15:0] lcd1_db_confreg;  assign lcd1_db =lcd1_db_confreg;
 wire lcd1_rst_confreg;               assign lcd1_rst = lcd1_rst_confreg;
 wire lcd1_cs_confreg;                assign lcd1_cs = lcd1_cs_confreg;
 wire lcd1_rs_confreg;                 assign lcd1_rs = lcd1_rs_confreg;
@@ -105,7 +111,7 @@ wire lcd1_wr_confreg;                assign lcd1_wr = lcd1_wr_confreg;
 wire  lcd1_rd_confreg;                assign lcd1_rd = lcd1_rd_confreg;
 wire lcd1_bl_ctr_confreg;         assign lcd1_bl_ctr = lcd1_bl_ctr_confreg;
 wire lcd1_T_PEN_confreg;       assign lcd1_T_PEN = lcd1_T_PEN_confreg;
-wire lcd1_sda_confreg;             assign lcd1_sda = lcd1_sda_confreg;
+wire lcd1_sda_confreg;             assign lcd1_sda =  lcd1_sda_confreg;
 wire lcd1_scl_confreg;               assign lcd1_scl = lcd1_scl_confreg;
 wire lcd1_T_CS_confreg;          assign lcd1_T_CS = lcd1_T_CS_confreg;
 
@@ -250,16 +256,21 @@ confreg #(.SIMULATION(SIMULATION)) confreg
     .btn_key_row ( btn_key_row),  // i, 4
     .btn_step    ( btn_step   ),   // i, 2
 
-    .lcd1_db (lcd1_db_confreg),
-    .lcd1_rst (lcd1_rst_confreg),
-    .lcd1_cs (lcd1_cs_confreg),
-    .lcd1_rs (lcd1_rs_confreg),
-    .lcd1_wr (lcd1_wr_confreg),
-    .lcd1_bl_ctr (lcd1_bl_ctr_confreg),
-    .lcd1_T_PEN (lcd1_T_PEN_confreg),
-    .lcd1_sda (lcd1_sda_confreg),
-    .lcd1_scl  (lcd1_scl_confreg),
-    .lcd1_T_CS (lcd1_T_CS_confreg)
+    .lcd_db (lcd1_db_confreg),
+    .lcd_rst (lcd1_rst_confreg),
+    .lcd_rd(lcd1_rd_confreg),
+    .lcd_cs (lcd1_cs_confreg),
+    .lcd_rs (lcd1_rs_confreg),
+    .lcd_wr (lcd1_wr_confreg),
+    .lcd_bl_ctr (lcd1_bl_ctr_confreg),
+    .lcd_T_PEN (lcd1_T_PEN_confreg),
+    .lcd_sda (lcd1_sda_confreg),
+    .lcd_scl  (lcd1_scl_confreg),
+    .lcd_T_int (lcd1_T_CS_confreg),
+
+    .led_dot     (led_dot     )
 );
+
+
 
 endmodule

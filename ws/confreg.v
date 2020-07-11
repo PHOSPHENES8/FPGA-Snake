@@ -76,6 +76,7 @@ THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 `define LCD_SDA_ADDR 16'h2008
 `define LCD_SCL_ADDR 16'h200c
 `define LCD_T_CS_ADDR 16'h2010
+
 `define LCD_CS_ADDR 16'h2014
 `define LCD_RS_ADDR 16'h2018
 `define LCD_WR_ADDR 16'h2020
@@ -106,25 +107,66 @@ module confreg
     input      [1 :0] btn_step,
 
     // lcd
-    inout [15:0] lcd1_db,
-    output lcd1_rst,
-    output lcd1_cs,
-    output lcd1_rs,
-    output lcd1_wr,
-    output lcd1_rd,
-    output lcd1_bl_ctr,
-    output lcd1_T_PEN,
-    output lcd1_sda,
-    output lcd1_scl,
-    output lcd1_T_CS
+    inout [15:0] lcd_db,
+    output lcd_rst,
+    output lcd_cs,
+    output lcd_rs,
+    output lcd_wr,
+    output lcd_rd,
+    output lcd_bl_ctr,
+    output lcd_T_PEN,
+    inout lcd_sda,
+    output lcd_scl,
+    inout lcd_T_int,
+    output     [31:0] led_dot 
 );
 
+wire display_valid;
+wire [39:0]display_name;
+wire [31:0]display_value;
+wire [5:0]display_number;
+wire input_valid;
+wire input_value;
+
+//assign display_valid = 1;
+//assign display_number = 6'd1;
+//assign display_value = 32'h5678;
+assign display_name[39:16] = "NO.";
+//assign display_name[15: 8] = {4'b0011,3'b000,1'b0};
+//assign display_name[7 : 0] = {4'b0011,4'b1111};
+
+lcd_module lcd_module(
+        .clk            (clk           ),   //10Mhz
+        .resetn         (resetn        ),
+
+        //调用触摸屏的接口
+        .display_valid  (display_valid ),
+        .display_name   (display_name  ),
+        .display_value  (display_value ),
+        .display_number (display_number),
+        .input_valid    (input_valid   ),
+        .input_value    (input_value   ),
+
+        //lcd触摸屏相关接口，不需要更改
+        .lcd_rst        (lcd_rst       ),
+        .lcd_cs         (lcd_cs        ),
+        .lcd_rs         (lcd_rs        ),
+        .lcd_wr         (lcd_wr        ),
+        .lcd_rd         (lcd_rd        ),
+        .lcd_data_io    (lcd_db   ),
+        .lcd_bl_ctr     (lcd_bl_ctr    ),
+        .ct_int         (lcd_T_int        ),
+        .ct_sda         (lcd_sda        ),
+        .ct_scl         (lcd_scl        ),
+        .ct_rstn        (lcd_T_PEN       )
+    );
+/*
 assign lcd1_rst = resetn;
 assign lcd1_scl = clk;
-assign lcd1_bl_ctr = 1;
+assign lcd1_bl_ctr = 0;
 assign lcd1_T_PEN = 1;
 assign lcd1_T_CS = 1;
-assign lcd1_cs = 1'b0;
+assign lcd1_cs = 1'b0;*/
 
     reg  [31:0] cr0;
     reg  [31:0] cr1;
@@ -149,6 +191,30 @@ assign lcd1_cs = 1'b0;
     reg  [7 :0] virtual_uart_data;
     reg         open_trace;
     reg         num_monitor;
+// -------- extra reg ---------
+    reg  [31:0] button;
+    always@(posedge clk)begin
+        if(!resetn)begin
+            button <= 32'h0;
+        end
+        else begin
+            button <= btn_key_row;
+        end
+    end
+
+    reg  [31:0] rand_data ; // rand 
+    always @(posedge clk) begin
+        if(~resetn) 
+            rand_data <= 0;
+        else 
+            rand_data <= rand_data + 1;
+    end
+
+    reg [31:0] led_dot_data1;
+    reg [31:0] led_dot_data2;
+    reg [7:0] led_dot_row; // 1
+    reg [7:0] led_dot_col; // 0
+    assign led_dot = {led_dot_col, 16'b0, led_dot_row};
 
     // read data has one cycle delay
     reg [31:0] conf_rdata_reg;
@@ -670,6 +736,35 @@ begin
             3'b110 : num_csn <= 8'b1111_1101;
             3'b111 : num_csn <= 8'b1111_1110;
         endcase
+	case(count[19:17]) 
+            3'b000 : led_dot_col <= 8'b0111_1111;
+            3'b001 : led_dot_col <= 8'b1011_1111;
+            3'b010 : led_dot_col <= 8'b1101_1111;
+            3'b011 : led_dot_col <= 8'b1110_1111;
+            3'b100 : led_dot_col <= 8'b1111_0111;
+            3'b101 : led_dot_col <= 8'b1111_1011;
+            3'b110 : led_dot_col <= 8'b1111_1101;
+            3'b111 : led_dot_col <= 8'b1111_1110;
+        endcase
+
+        case (count[19:17])
+            3'b000 : led_dot_row <= {led_dot_data1[31], led_dot_data1[23], led_dot_data1[15], led_dot_data1[7],   led_dot_data2[31], led_dot_data2[23], led_dot_data2[15], led_dot_data2[7] };
+            3'b001 : led_dot_row <= {led_dot_data1[30], led_dot_data1[22], led_dot_data1[14], led_dot_data1[6],   led_dot_data2[30], led_dot_data2[22], led_dot_data2[14], led_dot_data2[6] };
+            3'b010 : led_dot_row <= {led_dot_data1[29], led_dot_data1[21], led_dot_data1[13], led_dot_data1[5],   led_dot_data2[29], led_dot_data2[21], led_dot_data2[13], led_dot_data2[5] };
+            3'b011 : led_dot_row <= {led_dot_data1[28], led_dot_data1[20], led_dot_data1[12], led_dot_data1[4],   led_dot_data2[28], led_dot_data2[20], led_dot_data2[12], led_dot_data2[4] };
+            3'b100 : led_dot_row <= {led_dot_data1[27], led_dot_data1[19], led_dot_data1[11], led_dot_data1[3],   led_dot_data2[27], led_dot_data2[19], led_dot_data2[11], led_dot_data2[3] };
+            3'b101 : led_dot_row <= {led_dot_data1[26], led_dot_data1[18], led_dot_data1[10], led_dot_data1[2],   led_dot_data2[26], led_dot_data2[18], led_dot_data2[10], led_dot_data2[2] };
+            3'b110 : led_dot_row <= {led_dot_data1[25], led_dot_data1[17], led_dot_data1[ 9], led_dot_data1[1],   led_dot_data2[25], led_dot_data2[17], led_dot_data2[ 9], led_dot_data2[1] };
+            3'b111 : led_dot_row <= {led_dot_data1[24], led_dot_data1[16], led_dot_data1[ 8], led_dot_data1[0],   led_dot_data2[24], led_dot_data2[16], led_dot_data2[ 8], led_dot_data2[0] };
+            // 3'b000 : led_dot_row <= led_dot_data1[31:24];
+            // 3'b001 : led_dot_row <= led_dot_data1[23:16];
+            // 3'b010 : led_dot_row <= led_dot_data1[15: 8];
+            // 3'b011 : led_dot_row <= led_dot_data1[7 : 0];
+            // 3'b100 : led_dot_row <= led_dot_data2[31:24];
+            // 3'b101 : led_dot_row <= led_dot_data2[23:16];
+            // 3'b110 : led_dot_row <= led_dot_data2[15: 8];
+            // 3'b111 : led_dot_row <= led_dot_data2[7 : 0];
+        endcase
     end
 end
 
@@ -706,18 +801,21 @@ end
 //----------------------------{LCD}----------------------------------//
 
 // lcd_data
-reg[15:0] lcd_data;
-assign lcd1_db = lcd_data;
-wire is_lcd_data;
-assign is_lcd_data = conf_we & (conf_addr[15:0] == `LCD_ADDR);
+reg[4:0] display_name_reg;
+assign display_name[15: 8] = {4'b0011,3'b000,display_name_reg[4]};
+assign display_name[7 : 0] = {4'b0011,display_name_reg[3:0]};
+//assign display_name[15:0] = display_name_reg;
+wire is_display_name;
+assign is_display_name = conf_we & (conf_addr[15:0] == `LCD_ADDR);
 always @ ( posedge clk ) begin
   if(!resetn) begin
-  lcd_data  <= 0;
+  display_name_reg  <= 0;
   end
-  if(is_lcd_data) begin
-  lcd_data <= conf_wdata[15:0];
+  if(is_display_name) begin
+  display_name_reg <= conf_wdata[15:0];
   end
 end
+
 // lcd_cs;
 
 /*
@@ -736,47 +834,51 @@ end
 */
 
 // lcd_rs
-reg lcd_rs;
-assign lcd1_rs = lcd_rs;
-wire is_lcd_rs;
-assign is_lcd_rs = conf_we & (conf_addr[15:0] == `LCD_RS_ADDR);
+
+reg [5:0] display_number_reg;
+//assign display_number = display_number_reg;
+wire is_display_number;
+assign is_display_number = conf_we & (conf_addr[15:0] == `LCD_RS_ADDR);
 always @ ( posedge clk ) begin
   if(!resetn) begin
-  lcd_rs <= 0;
+  display_number_reg <= 0;
   end
-  if(is_lcd_rs) begin
-  lcd_rs <= conf_wdata[0];
+  if(is_display_number) begin
+  display_number_reg <= conf_wdata[5:0];
   end
 end
+
 
 // lcd_wr
-reg lcd_wr;
-assign lcd1_wr = lcd_wr;
-wire is_lcd_wr;
-assign is_lcd_wr = conf_we & (conf_addr[15:0] == `LCD_WR_ADDR);
+reg [31:0]display_value_reg;
+assign display_value= display_value_reg;
+wire is_display_value;
+assign is_display_value = conf_we & (conf_addr[15:0] == `LCD_WR_ADDR);
 always @ ( posedge clk ) begin
   if(!resetn) begin
-  lcd_wr <= 0;
+  display_value_reg <= 0;
   end
-  if(is_lcd_wr) begin
-  lcd_wr <= conf_wdata[0];
+  if(is_display_value) begin
+  display_value_reg <= conf_wdata;
   end
 end
+
 
 // lcd_rd
-reg lcd_rd;
-assign lcd1_rd = lcd_rd;
-wire is_lcd_rd;
-assign is_lcd_rd = conf_we & (conf_addr[15:0] == `LCD_RD_ADDR);
+reg display_valid_reg;
+assign display_valid = display_valid_reg & (display_number == display_number_reg);
+wire is_display_valid;
+assign is_display_valid = conf_we & (conf_addr[15:0] == `LCD_RD_ADDR);
 always @ ( posedge clk ) begin
   if(!resetn) begin
-  lcd_rd <= 0;
+  display_valid_reg <= 0;
   end
-  if(is_lcd_rd) begin
-  lcd_rd <= conf_wdata[0];
+  if(is_display_valid) begin
+  display_valid_reg <= conf_wdata[0];
   end
 end
 
+/*
 // lcd_sda
 reg lcd_sda;
 assign lcd1_sda = lcd_sda;
@@ -789,7 +891,7 @@ always @ ( posedge clk ) begin
   if(is_lcd_sda) begin
   lcd_sda <= conf_wdata[0];
   end
-end
+end*/
 
 
 endmodule
