@@ -359,7 +359,7 @@ void snake_main(){
     // int *q = SNAKE_LEN_ADDR;
     // *q = 2;
     // set_snake(1, 3, 3, 3, 4);
-    
+    int last_btn = 5;
     while (1)
     {
         rand();
@@ -373,27 +373,32 @@ void snake_main(){
         int btn_dir = *p;
         // p = NUM_ADDR;
         // *p = btn_dir;
-        if(btn_dir == 1) {
+        if(last_btn == 5 &&btn_dir == 1) {
             dx = -1;
             dy = 0;
+            last_btn = btn_dir;
         }
-        else if(btn_dir == 2) {
+        else if(last_btn == 5 && btn_dir == 2) {
             dx = 1;
             dy = 0;
+            last_btn = btn_dir;
         }
-        else if(btn_dir == 3) {
+        else if(last_btn == 5 && btn_dir == 3) {
             dx = 0;
             dy = -1;
+            last_btn = btn_dir;
         }
-        else if(btn_dir == 4) {
+        else if(last_btn == 5 && btn_dir == 4) {
             dx = 0;
             dy = 1;
+            last_btn = btn_dir;
         }
         else {
             dx = 0; dy = 0;
+            last_btn = btn_dir;
+            btn_dir = 5;
         }
-
-        delay(1000);
+        // delay(1000);
 
         // ----- update -----
         snake_move(btn_dir, dx, dy);
