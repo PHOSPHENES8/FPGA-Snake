@@ -41,5 +41,17 @@
 2. 在soft目录中`make clean`,`make`
 3. `soft/func`目录中`make clean` ,`make `
 
+## 访问地址调用函数
+```c
+void store(int addr, int val)//*addr=val
+```
+
+```c
+void load(int addr1, int addr2)//*addr1=*addr2
+```
+
+```c
+void geTdata(int *x, int addr)//x=*addr
+```
 
 
