@@ -47,13 +47,10 @@ int *p = 0xbfaff010;
 
 void draw()
 {
-for(int rk = 1; rk <=10; rk++)
-for(int i=0; i<5;i++)
-{
-  flush(rk,i);
-  delay();
-}
 
+flush(2,10);
+flush(3,10);
+flush(1,10);
 
 
 while(1)
