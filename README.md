@@ -1,6 +1,7 @@
 # FPGA-Snake
 
 在FPGA上玩贪吃蛇:smile:
+效果展示：[视频](https://drive.google.com/file/d/1NuS1aXrNL5ZOWi5-pMEfAOmweAW7BAIH/view?usp=sharing)
 
 ## Usage 
 
